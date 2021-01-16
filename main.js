@@ -15,6 +15,7 @@ function createWindow () {
   win.webContents.openDevTools()
 }
 
+/* eslint-disable-next-line promise/catch-or-return */
 app.whenReady().then(createWindow)
 
 app.on('activate', () => {
