@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "creating files from provided templates",
   "main": "main.js",
-  "scripts": {},
+  "scripts": {
+    "start": "electron ."
+  },
   "keywords": [],
   "author": "Laché Melvin <lache.melvin@gmail.com>",
   "license": "ISC",
