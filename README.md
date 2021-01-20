@@ -1,6 +1,6 @@
 # File Creator
 
-So basically there's going to be a form, you'll fill it out, and BAM there's your documents. There's going to be a better description one day - today is not that day.
+So (hear me out) there's going to be a form, you'll fill it out, and BAM there's your documents.
 
 I wanted an opportunity to play with TypeScript and Electron - here we are :)
 
@@ -19,7 +19,7 @@ _This list is rendered essentially as my inner dialogue. More of the todos are '
 - [ ] do some hacking though, it's fun
 - [ ] decide on a half decent structure for the whole IPC situation (`contextBridge`/`remote`/`ipcMain` and `ipcRenderer`/is async necessary for user experience/do we wanna do it that way regardless??)
 - [x] create templates (currently built for the `docx-templates` module - might look into other ones though/would love to accomodate other filetypes)
-- [ ] create an example template folder in this repo (once you decide how the templates are going to look though)
+- [ ] create an example template folder in this repo (once you decide how the templates are going to look though (and if they need to be based on decided schema?))
 - [ ] add start of documentation to this repo/remember to continue to update it as you do things
 - [ ] add how to run this app in dev mode instructions
 - [ ] remember that you're probably going to want `dialogue` and maybe `Menu` from electron
