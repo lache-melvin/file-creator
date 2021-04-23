@@ -4,6 +4,7 @@ const { contextBridge } = require('electron')
 contextBridge.exposeInMainWorld(
   'fs',
   {
-    readThisDir: () => fs.readdirSync(__dirname)
+    readThisDir: (): Array<string> => fs.readdirSync(__dirname),
+    hi: (): string => 'hey!'
   }
 )
