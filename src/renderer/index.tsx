@@ -3,4 +3,9 @@ import { render } from 'react-dom'
 
 import App from './components/App'
 
-render(<App />, document.getElementById('app'))
+document.addEventListener('DOMContentLoaded', () => {
+  render(
+    <App />,
+    document.getElementById('app')
+  )
+})
