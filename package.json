@@ -2,14 +2,15 @@
   "name": "file-creator",
   "version": "0.0.1",
   "description": "creating files from provided templates",
-  "main": "dist/main/main.js",
+  "main": "dist/main.js",
   "scripts": {
     "start": "electron .",
-    "build": "node_modules/typescript/bin/tsc",
-    "build:watch": "node_modules/typescript/bin/tsc -w --preserveWatchOutput",
-    "client": "webpack",
-    "client:watch": "webpack --watch",
-    "watch": "run-p build:watch client:watch",
+    "build": "run-p build:main build:renderer",
+    "build:main": "webpack --config ./webpack.main.ts",
+    "build:renderer": "webpack --config ./webpack.renderer.ts",
+    "build:main:watch": "npm run build:main -- --watch",
+    "build:renderer:watch": "npm run build:renderer -- --watch",
+    "watch": "run-p build:main:watch build:renderer:watch",
     "dev": "run-p start watch",
     "lint": "eslint ."
   },
@@ -17,11 +18,21 @@
   "author": "Laché Melvin <lache.melvin@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
+    "@babel/plugin-transform-regenerator": "^7.13.15",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.13.0",
     "@types/jest": "^26.0.22",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
+    "@types/webpack": "^5.28.0",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
+    "babel-loader": "^8.2.2",
     "electron": "^12.0.5",
     "eslint": "^7.24.0",
     "eslint-config-standard": "^16.0.2",
@@ -31,13 +42,29 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-standard": "^5.0.0",
+    "fork-ts-checker-webpack-plugin": "^6.2.4",
+    "html-webpack-plugin": "^5.3.1",
     "jest": "^26.6.3",
     "npm-run-all": "^4.1.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "ts-loader": "^9.1.0",
+    "ts-node": "^9.1.1",
     "typescript": "^4.2.4",
     "webpack": "^5.35.0",
-    "webpack-cli": "^4.6.0"
+    "webpack-cli": "^4.6.0",
+    "webpack-merge": "^5.7.3"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@babel/preset-typescript"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-transform-regenerator",
+      "@babel/plugin-transform-runtime"
+    ]
   }
 }

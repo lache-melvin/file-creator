@@ -1,16 +1,12 @@
-const { app, BrowserWindow } = require('electron')
-const path = require('path')
+import { ipcMain, app, BrowserWindow } from 'electron'
 
 function createWindow (): void {
   const win = new BrowserWindow({
     width: 800,
-    height: 600,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    }
+    height: 600
   })
 
-  win.loadFile(path.join(__dirname, '../../index.html'))
+  win.loadFile('dist/index.html')
 
   win.webContents.openDevTools()
 }
@@ -28,4 +24,9 @@ app.on('window-all-closed', (): void => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
+})
+
+// example ipc situation...
+ipcMain.handle('sayHi', async (event: unknown, name: string) => {
+  return `Hello, ${name}!`
 })
