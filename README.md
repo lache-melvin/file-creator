@@ -13,11 +13,10 @@ I _started_ this project in JS when I first graduated EDA. There's potentially s
 
 ## Todo
 _This list is rendered essentially as my inner dialogue. More of the todos are 'think about this again' than actual tasks, but that's okay._
-- [ ] decide on some form of guiding principles, which I will document here as and when they form
-- [ ] make reacty decisions - hooks? redux? probably figuring out what state i need to manage would be a good start
-- [ ] understand how to do more things in TypeScript before hacking away too much
-- [ ] do some hacking though, it's fun
-- [ ] decide on a half decent structure for the whole IPC situation (`contextBridge`/`remote`/`ipcMain` and `ipcRenderer`/is async necessary for user experience/do we wanna do it that way regardless??)
+- [x] make reacty decisions - hooks? redux? probably figuring out what state i need to manage would be a good start
+- [x] understand how to do more things in TypeScript before hacking away too much
+- [x] do some hacking though, it's fun
+- [x] decide on a half decent structure for the whole IPC situation (`contextBridge`/`remote`/`ipcMain` and `ipcRenderer`/is async necessary for user experience/do we wanna do it that way regardless??)
 - [x] create templates (currently built for the `docx-templates` module - might look into other ones though/would love to accomodate other filetypes)
 - [ ] create an example template folder in this repo (once you decide how the templates are going to look though (and if they need to be based on decided schema?))
 - [ ] add start of documentation to this repo/remember to continue to update it as you do things
