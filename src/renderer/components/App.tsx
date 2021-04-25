@@ -5,6 +5,8 @@ import { RootState } from '../store/store'
 import { setPage } from '../store/page/actionCreators'
 import { Page } from '../store/page/types'
 
+import Form from './Form'
+
 export default function App (): React.ReactElement {
   const dispatch = useDispatch()
   const page = useSelector((globalState: RootState) => globalState.page)
@@ -17,7 +19,7 @@ export default function App (): React.ReactElement {
     <>
       {page === 'form' &&
       <>
-        <h1>HI THERE FORM PAGE!</h1>
+        <Form />
         <button onClick={() => handleChangePage('success')}>Success</button>
       </>}
       {page === 'success' &&
