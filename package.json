@@ -1,5 +1,6 @@
 {
   "name": "file-creator",
+  "productName": "VSE File Generator",
   "version": "0.0.1",
   "description": "creating files from provided templates",
   "main": "dist/main.js",
