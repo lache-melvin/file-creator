@@ -3,13 +3,13 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { RootState } from '../store/store'
 import { setPage } from '../store/page/actionCreators'
-import { PageState } from '../store/page/types'
+import { Page } from '../store/page/types'
 
 export default function App (): React.ReactElement {
   const dispatch = useDispatch()
   const page = useSelector((globalState: RootState) => globalState.page)
 
-  function handleChangePage (page: PageState): void {
+  function handleChangePage (page: Page): void {
     dispatch(setPage(page))
   }
 

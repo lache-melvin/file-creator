@@ -1,12 +1,12 @@
 import {
   PageAction,
-  PageState,
+  Page,
   SET_PAGE
 } from './types'
 
-const initialState: PageState = 'form'
+const initialState: Page = 'form'
 
-export default function pageReducer (state = initialState, action: PageAction): PageState {
+export default function pageReducer (state = initialState, action: PageAction): Page {
   switch (action.type) {
     case SET_PAGE:
       return action.page
