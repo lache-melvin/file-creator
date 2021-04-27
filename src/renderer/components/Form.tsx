@@ -1,4 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
+import { ipcRenderer } from 'electron'
 
 export default function Form (): React.ReactElement {
   const [testInput, setTestInput] = useState('')
@@ -7,9 +8,10 @@ export default function Form (): React.ReactElement {
     setTestInput(e.target.value)
   }
 
-  function handleSubmit (e: FormEvent) {
+  async function handleSubmit (e: FormEvent) {
     e.preventDefault()
-    console.log(testInput)
+    const path = await ipcRenderer.invoke('getDownloadsPath')
+    console.log(path)
   }
 
   return (

@@ -1,18 +1,22 @@
-import { ipcMain, app, BrowserWindow } from 'electron'
+import { app, BrowserWindow } from 'electron'
+
+import initIpcListeners from './ipcMain'
 
 function createWindow (): void {
   const win = new BrowserWindow({
     width: 800,
-    height: 600
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true
+    }
   })
 
   win.loadFile('dist/index.html')
 
   win.webContents.openDevTools()
 }
-
-/* eslint-disable-next-line promise/catch-or-return */
-app.whenReady().then(createWindow)
 
 app.on('activate', (): void => {
   if (BrowserWindow.getAllWindows().length === 0) {
@@ -26,7 +30,15 @@ app.on('window-all-closed', (): void => {
   }
 })
 
-// example ipc situation...
-ipcMain.handle('sayHi', async (event: unknown, name: string) => {
-  return `Hello, ${name}!`
-})
+async function start (): Promise<void> {
+  // wait for electron to initialise
+  await app.whenReady()
+
+  // set up messaging between main and renderer processes
+  initIpcListeners()
+
+  // create and show the browser window
+  await createWindow()
+}
+
+start()
