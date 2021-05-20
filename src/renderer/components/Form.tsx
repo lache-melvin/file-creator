@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 
 import { saveFile } from '../ipcRenderer/saveFile'
-import { navigateTo } from './helpers'
+import { navigateTo } from './helpers/shared'
 
 export default function Form (): React.ReactElement {
   const [testInput, setTestInput] = useState('')

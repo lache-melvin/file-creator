@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
 import { files, FileSelection } from '../data/files'
-import { navigateTo } from './helpers'
+import { navigateTo } from './helpers/shared'
 
 export default function SelectFiles (): React.ReactElement {
   const { register, handleSubmit } = useForm<FileSelection>()
