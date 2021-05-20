@@ -34,6 +34,8 @@ async function start (): Promise<void> {
   // wait for electron to initialise
   await app.whenReady()
 
+  app.setAppLogsPath()
+
   // set up messaging between main and renderer processes
   initIpcListeners()
 
