@@ -8,4 +8,7 @@ const reducer = combineReducers({
 
 export type RootState = ReturnType<typeof reducer>
 
-export default createStore(reducer)
+const store = createStore(reducer)
+
+export const dispatch = store.dispatch
+export default store

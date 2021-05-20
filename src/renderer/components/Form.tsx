@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 
 import { saveFile } from '../files/test'
+import { navigateTo } from './helpers'
 
 export default function Form (): React.ReactElement {
   const [testInput, setTestInput] = useState('')
@@ -12,6 +13,7 @@ export default function Form (): React.ReactElement {
   async function handleSubmit (e: FormEvent) {
     e.preventDefault()
     await saveFile(testInput)
+    navigateTo('success')
   }
 
   return (
