@@ -24,7 +24,7 @@ export default function App (): React.ReactElement {
       </>}
       {page === 'success' &&
       <>
-        <h1>HI THERE SUCCESS PAGE!</h1>
+        <h1>HI THERE THIS IS THE SUCCESS PAGE!</h1>
         <button onClick={() => handleChangePage('form')}>Form</button>
       </>}
     </>

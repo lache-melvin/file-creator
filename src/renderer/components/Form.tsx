@@ -2,6 +2,8 @@ import React, { ChangeEvent, FormEvent, useState } from 'react'
 
 import { saveFile } from '../files/test'
 
+import SelectFiles from './SelectFiles'
+
 export default function Form (): React.ReactElement {
   const [testInput, setTestInput] = useState('')
 
@@ -15,15 +17,18 @@ export default function Form (): React.ReactElement {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor='testInput'>The first thing we&apos;re going to save!</label>
-      <input
-        id='testInput'
-        name='testInput'
-        value={testInput}
-        onChange={handleChange}
-      />
-      <button>DO THE THING</button>
-    </form>
+    <>
+      <SelectFiles />
+      <form onSubmit={handleSubmit}>
+        <label htmlFor='testInput'>The first thing we&apos;re going to save!</label>
+        <input
+          id='testInput'
+          name='testInput'
+          value={testInput}
+          onChange={handleChange}
+        />
+        <button>DO THE THING</button>
+      </form>
+    </>
   )
 }
