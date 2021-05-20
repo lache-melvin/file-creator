@@ -4,7 +4,7 @@ import {
   SET_PAGE
 } from './types'
 
-const initialState: Page = 'form'
+const initialState: Page = 'select'
 
 export default function pageReducer (state = initialState, action: PageAction): Page {
   switch (action.type) {

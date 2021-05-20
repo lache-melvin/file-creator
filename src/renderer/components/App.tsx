@@ -6,6 +6,7 @@ import { setPage } from '../store/page/actionCreators'
 import { Page } from '../store/page/types'
 
 import Form from './Form'
+import SelectFiles from './SelectFiles'
 
 export default function App (): React.ReactElement {
   const dispatch = useDispatch()
@@ -17,6 +18,10 @@ export default function App (): React.ReactElement {
 
   return (
     <>
+      {page === 'select' &&
+      <>
+        <SelectFiles />
+      </>}
       {page === 'form' &&
       <>
         <Form />
@@ -25,7 +30,7 @@ export default function App (): React.ReactElement {
       {page === 'success' &&
       <>
         <h1>HI THERE THIS IS THE SUCCESS PAGE!</h1>
-        <button onClick={() => handleChangePage('form')}>Form</button>
+        <button onClick={() => handleChangePage('select')}>Start Again</button>
       </>}
     </>
   )
