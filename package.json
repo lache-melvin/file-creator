@@ -13,6 +13,8 @@
     "build:renderer:watch": "npm run build:renderer -- --watch",
     "watch": "run-p build:main:watch build:renderer:watch",
     "dev": "run-p start watch",
+    "test": "jest --verbose",
+    "test:watch": "jest --verbose --watchAll",
     "lint": "eslint ."
   },
   "keywords": [],
