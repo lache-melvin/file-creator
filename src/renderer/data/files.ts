@@ -1,4 +1,4 @@
-type File = {
+export interface File {
   id: 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g',
   name: string,
   title: string,
