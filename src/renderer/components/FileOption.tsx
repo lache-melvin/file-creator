@@ -1,11 +1,11 @@
 import React from 'react'
 import { UseFormRegister } from 'react-hook-form'
 
-import { File, FileSelection } from '../data/files'
+import { File, FileId } from '../data/files'
 
 interface PropTypes {
   fileInfo: File
-  register: UseFormRegister<FileSelection>
+  register: UseFormRegister<FileId[]>
 }
 
 export default function FileOption ({ register, fileInfo: { id, name } }: PropTypes): React.ReactElement {

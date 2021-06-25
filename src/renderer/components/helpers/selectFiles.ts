@@ -1,9 +1,9 @@
 import { SubmitHandler } from 'react-hook-form'
 
 import { navigateTo } from './shared'
-import { FileSelection } from '../../data/files'
+import { FileId } from '../../data/files'
 
-export const submitSelection: SubmitHandler<FileSelection> = (selection) => {
+export const submitSelection: SubmitHandler<FileId[]> = (selection) => {
   console.log(selection)
   navigateTo('form')
 }

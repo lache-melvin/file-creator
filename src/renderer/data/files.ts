@@ -1,23 +1,28 @@
+type Field = 'clientName'
+ | 'clientAddress'
+ | 'clientEmail'
+ | 'streetAddress'
+ | 'town'
+ | 'council'
+
+export type FileId = 'ps1'
+ | 'is'
+ | 'calcs'
+ | 'sfa'
+ | 'genltr'
+ | 'srltr'
+ | 's2a'
+
 export interface File {
-  id: 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g',
+  id: FileId,
   name: string,
   title: string,
-  requiredInfo: string[]
-}
-
-export interface FileSelection {
-  a: boolean,
-  b: boolean,
-  c: boolean,
-  d: boolean,
-  e: boolean,
-  f: boolean,
-  g: boolean
+  requiredInfo: Field[]
 }
 
 export const files: File[] = [
   {
-    id: 'a',
+    id: 'ps1',
     name: 'PS1',
     title: 'PS1.docx',
     requiredInfo: [
@@ -28,7 +33,7 @@ export const files: File[] = [
     ]
   },
   {
-    id: 'b',
+    id: 'is',
     name: 'Inspection Schedule',
     title: 'IS.docx',
     requiredInfo: [
@@ -37,7 +42,7 @@ export const files: File[] = [
     ]
   },
   {
-    id: 'c',
+    id: 'calcs',
     name: 'Calcs Title Page',
     title: 'Calcs.docx',
     requiredInfo: [
@@ -46,7 +51,7 @@ export const files: File[] = [
     ]
   },
   {
-    id: 'd',
+    id: 'sfa',
     name: 'Short Form Agreement',
     title: 'SFA.docx',
     requiredInfo: [
@@ -58,7 +63,7 @@ export const files: File[] = [
     ]
   },
   {
-    id: 'e',
+    id: 'genltr',
     name: 'Letter - Generic',
     title: 'LTR - Generic.docx',
     requiredInfo: [
@@ -67,7 +72,7 @@ export const files: File[] = [
     ]
   },
   {
-    id: 'f',
+    id: 'srltr',
     name: 'Letter - Seismic Restraint',
     title: 'LTR - Seismic Restraint.docx',
     requiredInfo: [
@@ -78,7 +83,7 @@ export const files: File[] = [
     ]
   },
   {
-    id: 'g',
+    id: 's2a',
     name: 'Schedule 2A',
     title: 'Schedule 2A.docx',
     requiredInfo: [
