@@ -20,7 +20,12 @@ export default function Form (): React.ReactElement {
     navigateTo('success')
   }
 
+  function goBack () {
+    navigateTo('select')
+  }
+
   return (
+    <>
     <form onSubmit={handleSubmit}>
       <label htmlFor='testInput'>The first thing we&apos;re going to save!</label>
       <input
@@ -31,5 +36,7 @@ export default function Form (): React.ReactElement {
       />
       <button>DO THE THING</button>
     </form>
+    <button onClick={goBack}>Go back</button>
+    </>
   )
 }
