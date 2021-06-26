@@ -1,9 +1,13 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
+import { useSelector } from 'react-redux'
 
 import { saveFile } from '../ipcRenderer/saveFile'
 import { navigateTo } from './helpers/shared'
+import { RootState } from '../store/store'
 
 export default function Form (): React.ReactElement {
+  const selection = useSelector((globalState: RootState) => globalState.fileSelection)
+  console.log(selection)
   const [testInput, setTestInput] = useState('')
 
   function handleChange (e: ChangeEvent<HTMLInputElement>) {

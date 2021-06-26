@@ -1,20 +1,15 @@
 import React, { useState, FormEvent } from 'react'
+import { useSelector } from 'react-redux'
 
 import { files, FileId } from '../data/files'
 import { submitSelection } from './helpers/selectFiles'
+import { RootState } from '../store/store'
 
 import FileOption from './FileOption'
 
 export default function SelectFiles (): React.ReactElement {
-  const [fileSelection, setFileSelection] = useState({
-    ps1: false,
-    is: false,
-    calcs: false,
-    sfa: false,
-    genltr: false,
-    srltr: false,
-    s2a: false
-  })
+  const selection = useSelector((globalState: RootState) => globalState.fileSelection)
+  const [fileSelection, setFileSelection] = useState(selection)
 
   function select (id: FileId) {
     setFileSelection({

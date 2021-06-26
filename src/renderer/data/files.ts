@@ -20,16 +20,6 @@ export interface File {
   requiredInfo: Field[]
 }
 
-export interface FileSelection {
-  ps1: boolean
-  is: boolean
-  calcs: boolean
-  sfa: boolean
-  genltr: boolean
-  srltr: boolean
-  s2a: boolean
-}
-
 export const files: File[] = [
   {
     id: 'ps1',
