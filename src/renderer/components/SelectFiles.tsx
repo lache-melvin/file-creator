@@ -27,7 +27,7 @@ export default function SelectFiles (): React.ReactElement {
     <form onSubmit={submit}>
       <h3>Please select required files</h3>
         {files.map(fileInfo => {
-          return <FileOption key={fileInfo.id} select={select} fileInfo={fileInfo} />
+          return <FileOption key={fileInfo.id} select={select} checked={fileSelection[fileInfo.id]} fileInfo={fileInfo} />
         })}
       <button>Next...</button>
     </form>
