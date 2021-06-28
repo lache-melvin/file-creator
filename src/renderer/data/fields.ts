@@ -22,6 +22,13 @@ export const requiredFields: FieldName[] = [
   'clientName'
 ]
 
+export const defaultFields: FieldName[] = [
+  'jobNumber',
+  'jobName',
+  'streetAddress',
+  'clientName'
+]
+
 export const fields: Field[] = [
   {
     name: 'jobNumber',
@@ -29,14 +36,14 @@ export const fields: Field[] = [
     placeholder: 'e.g. 20202'
   },
   {
-    name: 'council',
-    title: 'Building Consent Authority',
-    placeholder: 'e.g. Council of Councillors'
-  },
-  {
     name: 'jobName',
     title: 'Job Name (if applicable)',
     placeholder: 'e.g. Happy House'
+  },
+  {
+    name: 'council',
+    title: 'Building Consent Authority',
+    placeholder: 'e.g. Council of Councillors'
   },
   {
     name: 'streetAddress',
