@@ -1,9 +1,4 @@
-type Field = 'clientName'
- | 'clientAddress'
- | 'clientEmail'
- | 'streetAddress'
- | 'town'
- | 'council'
+import { FieldName } from './fields'
 
 export type FileId = 'ps1'
  | 'is'
@@ -17,7 +12,7 @@ export interface File {
   id: FileId
   name: string
   title: string
-  requiredInfo: Field[]
+  requiredInfo: FieldName[]
 }
 
 export const files: File[] = [
