@@ -10,7 +10,7 @@ export type FieldName = 'clientName'
  | 'jobNumber'
  | 'jobName'
 
-interface Field {
+export interface Field {
   name: FieldName
   title: string
   placeholder: string
