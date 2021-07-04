@@ -26,45 +26,55 @@ export const defaultFields: FieldName[] = [
   'clientName'
 ]
 
-export const fields: Field[] = [
+interface FormSection {
+  title: string
+  sectionFields: Field[]
+}
+
+export const formSections: FormSection[] = [
   {
-    name: 'jobNumber',
-    title: 'Job Number',
-    placeholder: 'e.g. 20202'
+    title: 'Job Details',
+    sectionFields: [
+      {
+        name: 'jobNumber',
+        title: 'Job Number',
+        placeholder: 'e.g. 20202'
+      },
+      {
+        name: 'jobName',
+        title: 'Job Name (if applicable)',
+        placeholder: 'e.g. Happy House'
+      },
+      {
+        name: 'streetAddress',
+        title: 'Street Address',
+        placeholder: 'e.g. 123 Green Place'
+      },
+      {
+        name: 'town',
+        title: 'Town or City',
+        placeholder: 'e.g. Fairymead'
+      }
+    ]
   },
   {
-    name: 'jobName',
-    title: 'Job Name (if applicable)',
-    placeholder: 'e.g. Happy House'
-  },
-  {
-    name: 'council',
-    title: 'Building Consent Authority',
-    placeholder: 'e.g. Council of Councillors'
-  },
-  {
-    name: 'streetAddress',
-    title: 'Street Address',
-    placeholder: 'e.g. 123 Green Place'
-  },
-  {
-    name: 'town',
-    title: 'Town or City',
-    placeholder: 'e.g. Fairymead'
-  },
-  {
-    name: 'clientName',
-    title: 'Client Name',
-    placeholder: 'e.g. Jean Smith'
-  },
-  {
-    name: 'clientEmail',
-    title: 'Client Email',
-    placeholder: 'e.g. jean.smith@example.com'
-  },
-  {
-    name: 'clientAddress',
-    title: 'Full Client Address',
-    placeholder: 'e.g. 321 Happy Lane, Fairymead, Utopia'
+    title: 'Client Details',
+    sectionFields: [
+      {
+        name: 'clientName',
+        title: 'Client Name',
+        placeholder: 'e.g. Jean Smith'
+      },
+      {
+        name: 'clientEmail',
+        title: 'Client Email',
+        placeholder: 'e.g. jean.smith@example.com'
+      },
+      {
+        name: 'clientAddress',
+        title: 'Full Client Address',
+        placeholder: 'e.g. 321 Happy Lane, Fairymead, Utopia'
+      }
+    ]
   }
 ]

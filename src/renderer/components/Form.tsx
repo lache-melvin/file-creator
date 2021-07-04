@@ -1,23 +1,41 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import { saveFile } from '../ipcRenderer/saveFile'
+// import { saveFile } from '../ipcRenderer/saveFile'
+import { formSections } from '../data/fields'
 import { navigateTo } from './helpers/shared'
 import { getRequiredFields } from './helpers/form'
 import { RootState } from '../store/store'
 
+import FormSection from './FormSection'
+
 export default function Form (): React.ReactElement {
-  const selection = useSelector((globalState: RootState) => globalState.fileSelection)
-  console.log(getRequiredFields(selection))
-  const [testInput, setTestInput] = useState('')
+  const [form, setForm] = useState({
+    jobNumber: '',
+    jobName: '',
+    streetAddress: '',
+    clientName: '',
+    clientAddress: '',
+    clientEmail: '',
+    town: '',
+    council: ''
+  })
+
+  const fileSelection = useSelector((globalState: RootState) => globalState.fileSelection)
+  const requiredFields = getRequiredFields(fileSelection)
 
   function handleChange (e: ChangeEvent<HTMLInputElement>) {
-    setTestInput(e.target.value)
+    const { name, value } = e.target
+    setForm({
+      ...form,
+      [name]: value
+    })
   }
 
   async function handleSubmit (e: FormEvent) {
     e.preventDefault()
-    await saveFile(testInput)
+    console.log(form)
+    // await saveFile(testInput)
     navigateTo('success')
   }
 
@@ -28,13 +46,17 @@ export default function Form (): React.ReactElement {
   return (
     <>
     <form onSubmit={handleSubmit}>
-      <label htmlFor='testInput'>The first thing we&apos;re going to save!</label>
-      <input
-        id='testInput'
-        name='testInput'
-        value={testInput}
-        onChange={handleChange}
-      />
+      {formSections.map(section => (
+        <FormSection
+          key={section.title}
+          handleChange={handleChange}
+          title={section.title}
+          sectionFields={section.sectionFields.reduce((acc, field) => {
+            requiredFields.includes(field.name) && acc.push({ data: field, value: form[field.name] })
+            return acc
+          }, [])}
+        />
+      ))}
       <button>DO THE THING</button>
     </form>
     <button onClick={goBack}>Go back</button>
